@@ -8,11 +8,11 @@ const Navbar = () => {
 </div>
 
       <ul className='flex justify-between gap-4 '>
-        <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>home</li>
-        <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>about</li>
-        <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>project</li>
-        <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>signup</li>
-        <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>Login</li>
+        <li className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200] rounded-xl m-2 cursor-pointer'>home</li>
+        <li className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer  '>about</li>
+        <li className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer '>project</li>
+        <li className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer'>signup</li>
+        <li className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer'>Login</li>
           
       </ul>
     </nav>
