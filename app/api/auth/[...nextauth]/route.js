@@ -2,7 +2,6 @@
 import NextAuth from "next-auth"
 import GitHubProvider from "next-auth/providers/github"
 
-import next from "next"
 
 export const authOptions = NextAuth({
 

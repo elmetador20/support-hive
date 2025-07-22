@@ -3,9 +3,17 @@
 import React from 'react'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 import { useSession, signIn, signOut } from "next-auth/react"
-
-const page = () => {
+import {useRouter}
+   from 'next/navigation'
+const Login = () => {
+  const { data: session } = useSession()
+   if (session) {
+      const router = useRouter()
+      router.push('/dashboard')
+    }
   return (
+   
+
     <div className='container  text-center mx-auto p-4'>
       <h1 className='text-3xl font-bold mb-4b bg-red-800'>Login For support </h1>
       <div className=' p-4 social-login-buttons 
@@ -48,4 +56,4 @@ Sign in with Apple
   )
 }
 
-export default page
+export default Login
