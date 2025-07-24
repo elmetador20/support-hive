@@ -12,9 +12,10 @@ const Navbar = () => {
   
   return (
     <nav className='bg-blue-950 text-white flex items-center justify-between h-16 px-4'>
-      <div className="text-white font-bold text-xl border border-white px-4 py-2 rounded-md hover:text-[#4f685d] transition cursor-pointer justify-center items-center flex "><span><img src="/tea.gif" width={44} alt="Chai" /></span>
-        Get me a Chai
-      </div>
+      
+        <Link  className="text-white font-bold text-xl border border-white px-4 py-2 rounded-md hover:text-[#4f685d] transition cursor-pointer justify-center items-center flex "href={"/"}><img className="invertImg"src="/tea.gif" width={44} alt="Chai" />
+        <span>Get me a Chai</span></Link>
+      
 
       <div className=' relative flex justify-between gap-4 '>
 
@@ -31,11 +32,9 @@ const Navbar = () => {
               <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
             </li>
             <li>
-              <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</Link>
+              <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Your Page</Link>
             </li>
-            <li>
-              <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</Link>
-            </li>
+          
             <li>
               <Link onClick={() => signOut()} href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</Link>
             </li>

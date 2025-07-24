@@ -3,7 +3,7 @@ export default function Home() {
   return (
    <>
      <div className="flex justify-center flex-col items-center h-[44vh] text-white px-4 ">
-  <div className="font-extrabold flex gap-2 text-5xl mb-2">Buy Me a Chai<span><img src="/tea1.gif"width={58} alt="sorry"/></span></div>
+  <div className="font-extrabold flex gap-2 text-5xl mb-2">Buy Me a Chai<span><img className="invertImg" src="/tea1.gif"width={58} alt="sorry"/></span></div>
   
   <p className="text-sm md:text-base max-w-xl text-gray-300 mb-6 text-center">
     A crowd-funding platform to support your projects with chai. Get funded by your fans and followers.

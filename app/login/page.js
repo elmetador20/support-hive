@@ -14,7 +14,7 @@ const Login = () => {
   return (
    
 
-    <div className='container  text-center mx-auto p-4'>
+    <div className='container max-h-screen text-center mx-auto p-4'>
       <h1 className='text-3xl font-bold mb-4b bg-red-800'>Login For support </h1>
       <div className=' p-4 social-login-buttons 
       flex flex-col items-center gap-4'>
@@ -53,6 +53,7 @@ Sign in with Apple
 
 
     </div>
+  
   )
 }
 
