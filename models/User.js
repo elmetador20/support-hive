@@ -1,5 +1,7 @@
-import Username from "@/app/[username]/page";
+
 import mongoose from "mongoose";
+import { models } from "mongoose"
+
 const { Schema, model } = mongoose;
 
 const UserSchema = new Schema({
@@ -10,7 +12,6 @@ const UserSchema = new Schema({
   coverpic: { type: String },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
-
 });
 
-export default mongoose.models.User||model("User",UserSchema) ;
+export default mongoose.models.User || model("User", UserSchema);

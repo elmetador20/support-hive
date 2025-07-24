@@ -1,10 +1,9 @@
-"use client"
 
+"use client"
 import React from 'react'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 import { useSession, signIn, signOut } from "next-auth/react"
-import {useRouter}
-   from 'next/navigation'
+import {useRouter}from 'next/navigation'
 const Login = () => {
   const { data: session } = useSession()
    if (session) {
