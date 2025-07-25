@@ -1,17 +1,31 @@
-"use client"
-import React,{useState} from 'react'
+
+import React,{useState,useEffect} from 'react'
 import Script from 'next/script'
 import { initiate } from '@/actions/useractions'
 import { useSession } from 'next-auth/react'
+import { fetchuser,fetchpayments } from '@/actions/useractions'
 
 
 const PaymentPage=({ username })=> {
-  const [paymentform, setpaymentform] = useState({name: "", message: "", amount: ""})
+  const [paymentform, setpaymentform] = useState("")
+  const [currentUser, setcurrentUser] = useState({})
+  const [payments, setPayments] = useState([])
 
+
+  useEffect(() => {
+    getData()
+  }, [])
+  
   const handleChange = (e) => {
     setpaymentform({ ...paymentform, [e.target.name]: e.target.value })
 
   }
+    const getData=async(params)=>{
+      let u = await fetchuser(username)
+     setcurrentUser(u)
+     let dbpayments=await fetchpayments(username)
+     setPayments(dbpayments)
+    }
 
 
 
@@ -55,14 +69,21 @@ const PaymentPage=({ username })=> {
 />
 
 
-      <div className='min-h-screen cover  w-full  relative'>
-        <img className="object-cover w-full h-[350]"
-          src="patreon.gif"
-        />
-        <div className='absolute  right-[48%] border-2 border-white rounded-full  ' >
-          <img className="rounded-full h-auto  -bottom-full top-1/2" width={45} height={40} src='cat.gif' alt='' />
-        </div>
-
+      <div className='min-h-screen w-full  relative'>
+        {currentUser?.coverpic && (
+  <img className=" w-full h-[350] overflow-cover " src={currentUser.coverpic} />
+)}
+        {currentUser?.profilepic && (
+  <div className='absolute overflow-hidden top-64 right-[46%] border-2 border-white rounded-full size-24'>
+    <img
+      className="rounded-full object-cover size-24  "
+      width={128}
+      height={128}
+      src={currentUser.profilepic}
+      alt='Profile Pic'
+    />
+  </div>
+)}
         <div className='info  flex flex-col justify-center items-center my-20 gap-2'>
           <div className='font-bold text-lg '>
             @{username}
@@ -80,12 +101,15 @@ const PaymentPage=({ username })=> {
             <h2 className='text-lg font-bold'>supporters</h2>
 
             <ul>
-              <li className='my-2'>Shubham donated $30 with a message""</li>
-              <li className='my-2'>Shubham donated $30 with a message""</li>
-              <li className='my-2'>Shubham donated $30 with a message""</li>
-              <li className='my-2'>Shubham donated $30 with a message""</li>
+              {payments.length===0 && <li> No payments yet</li>}
 
-              <li className='my-2'>Shubham donated $30 with a message""</li>
+              
+              {payments.map((p,i)=>{
+
+             
+              return <li key={i} className='my-2'>{p.name} donated ₹{p.amount} with a message "{p.message}" </li>
+              })}
+            
 
             </ul>
           </div>
@@ -98,15 +122,15 @@ const PaymentPage=({ username })=> {
               <input onChange={handleChange} value={paymentform.message} name="message" type="text" className='w-full mx-3 rounded-lg bg-slate-500' placeholder=' Enter Message' />
               <input onChange={handleChange} value={paymentform.amount} name="amount" type="text" className='w-full mx-3 rounded-lg bg-slate-500' placeholder=' Enter your amount' />
               <div className='mx-3 rounded-none'>
-                <button onClick={() => pay(Number.parseInt(paymentform.amount) * 100)} className=" w-28 srelative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                <button onClick={() => pay(Number.parseInt(paymentform.amount) * 100)} className=" w-28 srelative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 disabled:bg-red-700 disabled:from-red-900" disabled={paymentform.name?.length<3&&paymentform.message?.lengtt<4}>
                   <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-whiterounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">pay</span>
                 </button>
               </div>
             </div>
             <div className='flex mx-2 mb-3'>
-              <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(1000, orderID)}>Pay ₹10</button>
-              <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(2000, orderID)}>Pay ₹20</button>
-              <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(3000, orderID)}>Pay ₹30</button>
+              <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(1000)}>Pay ₹10</button>
+              <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(2000)}>Pay ₹20</button>
+              <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(3000)}>Pay ₹30</button>
             </div>
 
           </div>
