@@ -26,7 +26,7 @@ export const authOptions = NextAuth({
         if (!currentUser) {
           const newUser = new User({
             email,
-            Username: email.split("@")[0],
+            username: email.split("@")[0],
           });
           await newUser.save();
           user.name = newUser.username;

@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -10,12 +11,16 @@ export default function Home() {
   </p>
   
   <div>
+    <Link href="/login">
     <button className="bg-transparent border-2 border-white text-white font-semibold px-6 py-2 rounded-md ml-4 hover:bg-white hover:text-[#121f4a] transition duration-200">
       Start Now
     </button>
+    </Link>
+    <Link href="/about">
     <button className="bg-transparent border-2 border-white text-white font-semibold px-6 py-2 rounded-md ml-4 hover:bg-white hover:text-[#121f4a] transition duration-200">
       Read More
     </button>
+    </Link>
     
   </div>
   

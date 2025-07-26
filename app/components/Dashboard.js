@@ -7,9 +7,9 @@ import { fetchuser, updateProfile } from '@/actions/useractions'
 
 
 
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { Bounce } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce } from 'react-toastify';
 
 const Dashboard = () => {
     const { data: session, update } = useSession()
@@ -25,26 +25,26 @@ const Dashboard = () => {
         else {
             getData()
         }
-    }, [router,session])
+    }, [router, session])
 
     const getData = async () => {
-    try {
-        const u = await fetchuser(session?.user?.name);
-        if (u && typeof u === 'object') {
-            setform({
-                name: u.name || '',
-                email: u.email || '',
-                Username: u.Username || '',
-                profilepic: u.profilepic || '',
-                coverpic: u.coverpic || '',
-                razorpayid: u.razorpayid || '',
-                razorpaysecret: u.razorpaysecret || '',
-            });
+        try {
+            const u = await fetchuser(session?.user?.name);
+            if (u && typeof u === 'object') {
+                setform({
+                    name: u.name || '',
+                    email: u.email || '',
+                    username: u.username || '',
+                    profilepic: u.profilepic || '',
+                    coverpic: u.coverpic || '',
+                    razorpayid: u.razorpayid || '',
+                    razorpaysecret: u.razorpaysecret || '',
+                });
+            }
+        } catch (error) {
+            console.error("Error fetching user:", error);
         }
-    } catch (error) {
-        console.error("Error fetching user:", error);
     }
-}
 
 
     const handleChange = (e) => {
@@ -52,22 +52,22 @@ const Dashboard = () => {
     }
 
     const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form reload
-    await updateProfile(form, session.user.name);
-    alert("Profile updated");
+        e.preventDefault(); // Prevent default form reload
+        await updateProfile(form, session.user.name);
+        //alert("Profile updated");
 
-    //     toast('Profile Updated', {
-    //         position: "top-right",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //         theme: "light",
-    //         transition: Bounce,
-    //         });
-}
+        toast('Profile Updated', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        });
+    }
 
 
 
@@ -75,9 +75,24 @@ const Dashboard = () => {
 
     return (
         <>
+            <ToastContainer
+                position='top-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
+            <ToastContainer/>
             <div className='min-h-screen container mx-auto py-5 px-6 '>
-                <h1 className='text-center my-5 text-3xl font-bold'>Welcome to your Dashboard</h1>
-                    <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>        
+                <h1 className=" text-center text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 animate-glow hover:scale-105 transition duration-500 shadow-md">
+  Welcome To Dashboard
+</h1>
+                <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>
 
                     <div className='my-2'>
                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
@@ -91,7 +106,7 @@ const Dashboard = () => {
                     {/* input forusername */}
                     <div className='my-2'>
                         <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                        <input value={form.Username ? form.Username : ""} onChange={handleChange} type="text" name='username' id="username" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                        <input value={form.username ? form.username : ""} onChange={handleChange} type="text" name='username' id="username" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     </div>
                     {/* input for profile picture of input type text */}
                     <div className="my-2">

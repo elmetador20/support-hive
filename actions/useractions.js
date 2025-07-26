@@ -6,9 +6,16 @@ import connectDb from "@/app/db/connectDb"
 import User from "@/models/User"
 
 
+
 export const initiate = async (amount, to_username, paymentform) => {
   await connectDb()
-  var instance = new Razorpay({ key_id:process.env.NEXT_PUBLIC_KEY_ID, key_secret:process.env.KEY_SECRET })
+
+  let user=await User.findOne({username:to_username})
+  
+  const instance = new Razorpay({
+    key_id: user.razorpayid,
+    key_secret: user.razorpaysecret,
+  });
 
 
  
@@ -44,6 +51,11 @@ export const updateProfile=async(data,oldusername)=>{
   if(u){
     return {error:"Username already exist"}
   }
+  await User.updateOne({email:ndata.email},ndata)
+  await Payment.updateMany({to_user:oldusername},{to_user:ndata.username})
+
   }
+  else{
     await User.updateOne({email:ndata.email},ndata)
+  }
 }
