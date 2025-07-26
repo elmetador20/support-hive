@@ -1,6 +1,12 @@
-"use client";
+
 import { SparklesIcon, HeartIcon, UsersIcon, StarIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+
+
+export const metadata= {
+  title:"About-Get me a chai",
+  
+}
 
 const AboutPage = () => {
   return (

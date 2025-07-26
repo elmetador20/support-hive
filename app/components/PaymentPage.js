@@ -93,13 +93,13 @@ const PaymentPage=({ username })=> {
           <div className=" inline-block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 drop-shadow-[0_0_8px_rgba(255,165,0,0.6)] font-extrabold text-2xl animate-text-glow transition-all duration-500 ease-in-out hover:animate-text-glow-hover hover:bg-gradient-to-r hover:from-fuchsia-500 hover:via-purple-500 hover:to-indigo-500 hover:drop-shadow-[0_0_15px_rgba(138,43,226,0.8)] cursor-pointer">
             @{username}
           </div>
-          <div className=" font-code text-cyan-400 animate-pulserelative inline-block font-semibold text-blue-300 transition-all duration-700 ease-in-out 
+          <div className=" font-code text-cyan-400 animate-pulserelative inline-block font-semibold transition-all duration-700 ease-in-out 
   after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-700 
   hover:after:w-full hover:text-cyan-300 hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.7)] cursor-pointer">
 
            Let's help {username} to get a support
           </div>
-          <div className=" font-code text-purple-400 animate-pulse relative inline-block font-semibold transition-all duration-700 ease-in-out 
+          <div className=" flex flex-col md:items-centre font-code text-purple-400 animate-pulse relative md:inline-block font-semibold transition-all duration-700 ease-in-out 
   after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-700 
   hover:after:w-full hover:text-cyan-300 hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.7)] cursor-pointer">
             {currentUser.name} is raising funds for their project!!!
@@ -110,9 +110,9 @@ const PaymentPage=({ username })=> {
             {payments.length} payments done till now with amount-₹{payments.reduce((a,b)=>a+b.amount,0)}raised
           </div>
         </div>
-        <div className='payment mt -11 -top-40 mx-auto justify-center flex  gap-2 w-[80%]  '>
-          <div className='supporters text-center text-white rounded-lg px-5 py-3 w-1/2 bg-slate-900'>
-            <h2 className='text-lg font-bold'>supporters</h2>
+        <div className='payment mt -11 flex-col md:flex-row -top-40 mx-auto justify-center flex  gap-2 w-[80%]  '>
+          <div className='supporters text-center text-white rounded-lg px-5 py-3 w-full  md:w-1/2 bg-slate-900'>
+            <h2 className='text-lg font-bold'>Top supporters</h2>
 
             <ul>
               {payments.length===0 && <li> No payments yet</li>}
@@ -121,13 +121,13 @@ const PaymentPage=({ username })=> {
               {payments.map((p,i)=>{
 
              
-              return <li key={i} className='my-2'>{p.name} donated ₹{p.amount} with a message "{p.message}" </li>
+              return <li key={i} className='my-2'>#){p.name} donated ₹{p.amount} with a message "{p.message}" </li>
               })}
             
 
             </ul>
           </div>
-          <div className=' w-1/2 rounded-lg bg-slate-900 makePayment'>
+          <div className=' w-full  md:w-1/2 rounded-lg bg-slate-900 makePayment'>
             <h2 className='text-sm font-bold my-2 mx-8 teet-3lg'> Make a payment</h2>
             <div className='flex flex-col gap-2 mx-5'>
               <div>
@@ -141,7 +141,7 @@ const PaymentPage=({ username })=> {
                 </button>
               </div>
             </div>
-            <div className='flex mx-2 mb-3'>
+            <div className='flex flex-col gap-2  mx-2 mb-3 md:flex-row'>
               <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(1000)}>Pay ₹10</button>
               <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(2000)}>Pay ₹20</button>
               <button className='bg-slate-800 p-3 mx-6 rounded-lg' onClick={() => pay(3000)}>Pay ₹30</button>

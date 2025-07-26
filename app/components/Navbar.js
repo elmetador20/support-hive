@@ -11,17 +11,17 @@ const Navbar = () => {
 
 
   return (
-    <nav className='bg-blue-950 text-white flex items-center justify-between h-16 px-4'>
+    <nav className='bg-blue-950 text-white flex items-center justify-between md:h-16 px-4 flex-col md:flex-row'>
 
       <Link
         href="/"
-        className="relative flex items-center justify-center gap-2 text-white font-bold text-xl px-5 py-2 rounded-lg border border-white bg-white/10 backdrop-blur-md shadow-lg hover:bg-gradient-to-r hover:from-[#4f685d] hover:to-[#8bc6ec] hover:text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+        className=" md:my-5 my-4 relative flex items-center justify-center gap-2 text-white font-bold text-xl px-5 py-2 rounded-lg border border-white bg-white/10 backdrop-blur-md shadow-lg hover:bg-gradient-to-r hover:from-[#4f685d] hover:to-[#8bc6ec] hover:text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl"
       >
         <img
           src="/tea.gif"
           width={44}
           alt="Chai"
-          className="invertImg drop-shadow-lg animate-pulse"
+          className="invertImg  drop-shadow-lg animate-pulse"
         />
         <span className="tracking-wide">Get me a Chai</span>
       </Link>

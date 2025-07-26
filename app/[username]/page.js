@@ -2,6 +2,7 @@
 "use client"
 import React from 'react'
 import PaymentPage from '../components/PaymentPage'
+import { useParams } from 'next/navigation'
 const Username = ({params}) => {
 
 
@@ -18,3 +19,8 @@ const Username = ({params}) => {
 }
 
 export default Username
+  // export async function generatemetadaat({params}){
+  //   return{
+  //     title: `${params.username}-Get me a chai`
+  //   }
+  // }
