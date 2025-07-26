@@ -90,11 +90,11 @@ const Dashboard = () => {
                 pauseOnHover
                 theme='light'
             />
-            <ToastContainer/>
+            <ToastContainer />
             <div className='min-h-screen container mx-auto py-5 px-6 '>
                 <h1 className=" text-center text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 animate-glow hover:scale-105 transition duration-500 shadow-md">
-  Welcome To Dashboard
-</h1>
+                    Welcome To Dashboard
+                </h1>
                 <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>
 
                     <div className='my-2'>

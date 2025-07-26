@@ -1,14 +1,21 @@
+// lib/connectDb.js
 import mongoose from "mongoose";
 
+let isConnected = false;
+
 const connectDb = async () => {
+  if (isConnected) return;
+
   try {
-    const conn = await mongoose.connect("mongodb://127.0.0.1:27017/code", {
-      // Optional: keeps things stable
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+     
     });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    isConnected = conn.connections[0].readyState === 1;
+
+    console.log("✅ MongoDB Connected:", conn.connection.host);
   } catch (error) {
-    console.error(`Error: ${error.message}`);
-    
+    console.error("❌ MongoDB connection error:", error);
+    throw new Error("MongoDB connection failed");
   }
 };
 
