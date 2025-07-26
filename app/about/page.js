@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import { SparklesIcon, HeartIcon, UsersIcon, StarIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";

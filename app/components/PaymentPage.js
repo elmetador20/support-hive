@@ -1,10 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import React,{useState,useEffect} from 'react'
 import Script from 'next/script'
 import { initiate } from '@/actions/useractions'
-import { useSession } from 'next-auth/react'
 import { fetchuser,fetchpayments } from '@/actions/useractions'
-import { notFound } from 'next/navigation'
+
 
 
 const PaymentPage=({ username })=> {
