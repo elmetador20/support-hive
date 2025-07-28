@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useState } from 'react'
+import SearchUser from './SearchUser'
 
 
 const Navbar = () => {
@@ -26,17 +27,22 @@ const Navbar = () => {
         <span className="tracking-wide">Get me a Chai</span>
       </Link>
 
-
-
+      <SearchUser/>
       <div className=' relative flex justify-between gap-4 '>
+
+
+
 
 
         {session && <>
 
-          <button onClick={() => setShowdropdown(!showdropdown)} onBlur={()=> {setTimeout(()=>{
-            setShowdropdown(false)},300);}} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer' type="button">Welcome {session.user.email} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-          </svg>
+          <button onClick={() => setShowdropdown(!showdropdown)} onBlur={() => {
+            setTimeout(() => {
+              setShowdropdown(false)
+            }, 300);
+          }} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer' type="button">Welcome {session.user.email} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+            </svg>
           </button>
           <div id="dropdown" className={`z-10${showdropdown ? '' : ' hidden'} absolute left-[125px] bg-white divide-y  divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700`}>
             <ul className=" py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
