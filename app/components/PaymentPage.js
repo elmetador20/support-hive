@@ -1,10 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-
+"use client"
 import React,{useState,useEffect} from 'react'
+
 import Script from 'next/script'
 import { initiate } from '@/actions/useractions'
 import { fetchuser,fetchpayments } from '@/actions/useractions'
 
+import UsernamePage from '../[username]/page'
 
 
 const PaymentPage=({ username })=> {
@@ -21,6 +23,7 @@ const PaymentPage=({ username })=> {
     setpaymentform({ ...paymentform, [e.target.name]: e.target.value })
 
   }
+  
     const getData=async(params)=>{
       let u = await fetchuser(username)
      setcurrentUser(u)

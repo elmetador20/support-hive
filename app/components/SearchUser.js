@@ -15,7 +15,8 @@ const SearchUser = () => {
     const data = await res.json();
 
     if (res.ok && data.exists) {
-      router.push(`/user/${username}`);
+  router.push(`/${username}`);
+
     } else {
       setError('User not found');
     }
