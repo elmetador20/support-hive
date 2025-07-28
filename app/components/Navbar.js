@@ -33,7 +33,8 @@ const Navbar = () => {
 
         {session && <>
 
-          <button onClick={() => setShowdropdown(!showdropdown)} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer' type="button">Welcome {session.user.email} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6">
+          <button onClick={() => setShowdropdown(!showdropdown)} onBlur={()=> {setTimeout(()=>{
+            setShowdropdown(false)},300);}} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className='p-4  hover:bg-white hover:text-[#121f4a] transition duration-200 rounded-xl m-2 cursor-pointer' type="button">Welcome {session.user.email} <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
           </svg>
           </button>
