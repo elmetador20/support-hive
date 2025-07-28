@@ -19,7 +19,7 @@ const Login = () => {
   return (
 
 
-    <div className='container max-h-screen text-center mx-auto p-4'>
+    <div className='container min-h-screen text-center mx-auto p-4'>
       <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 animate-glow hover:scale-105 transition duration-500 shadow-md">
         Login for Support
       </h1>

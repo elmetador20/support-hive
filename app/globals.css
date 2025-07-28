@@ -34,3 +34,140 @@ body {
 .invertImg{
   filter:invert(0.23)
 }
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 15s ease infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-40px) scale(1.2);
+  }
+  100% {
+    transform: translateY(-80px) scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-floating {
+  animation: floatUp linear infinite;
+}
+@keyframes blob1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@keyframes blob2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-50px, 30px) scale(1.1);
+  }
+  66% {
+    transform: translate(20px, -30px) scale(0.95);
+  }
+}
+
+@keyframes blob3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, 60px) scale(1.05);
+  }
+  66% {
+    transform: translate(-30px, -40px) scale(0.9);
+  }
+}
+
+.animate-blob1 {
+  animation: blob1 25s ease-in-out infinite;
+}
+
+.animate-blob2 {
+  animation: blob2 30s ease-in-out infinite;
+}
+
+.animate-blob3 {
+  animation: blob3 35s ease-in-out infinite;
+}
+.comet-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, #63e, transparent);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.8;
+  animation: cometTrail 0.8s ease-out forwards;
+}
+
+@keyframes cometTrail {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px) scale(0.3);
+    opacity: 0;
+  }
+}
+.comet-particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.9;
+  filter: blur(3px);
+  animation: cometTrail 0.8s ease-out forwards;
+}
+
+@keyframes cometTrail {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px) scale(0.3);
+    opacity: 0;
+  }
+}
+

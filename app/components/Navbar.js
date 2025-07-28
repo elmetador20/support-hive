@@ -19,12 +19,12 @@ const Navbar = () => {
         className=" md:my-5 my-4 relative flex items-center justify-center gap-2 text-white font-bold text-xl px-5 py-2 rounded-lg border border-white bg-white/10 backdrop-blur-md shadow-lg hover:bg-gradient-to-r hover:from-[#4f685d] hover:to-[#8bc6ec] hover:text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl"
       >
         <img
-          src="/tea.gif"
+          src="/support.png"
           width={44}
           alt="Chai"
           className="invertImg  drop-shadow-lg animate-pulse"
         />
-        <span className="tracking-wide">Get me a Chai</span>
+        <span className="tracking-wide">SUPPORT_HIVE</span>
       </Link>
 
       <SearchUser/>

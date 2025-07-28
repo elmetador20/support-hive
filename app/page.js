@@ -2,64 +2,93 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-   <>
-     <div className="flex justify-center flex-col items-center h-[44vh] text-white px-5 md:px-0  text-xs md:text-base">
-  <div className="font-extrabold flex md:gap-5 gap-2 md:text-5xl mb-2 text-3xl">Buy Me a Chai<span><img className="invertImg" src="/tea1.gif"width={58} alt="sorry"/></span></div>
-  
-  <p className="text-sm md:text-base text-centre md:text-left max-w-xl text-gray-300 mb-6 text-center">
-    A crowd-funding platform to support your projects with chai.
-  </p>
-  <p className="text-sm md:text-base text-centre md:text-left max-w-xl text-gray-300 mb-6 text-center"> Get funded by your fans and followers.</p>
-  <div>
-    <Link href="/login">
-    <button className="bg-transparent border-2 border-white text-white font-semibold px-6 py-2 rounded-md ml-4 hover:bg-white hover:text-[#121f4a] transition duration-200">
-      Start Now
-    </button>
-    </Link>
-    <Link href="/about">
-    <button className="bg-transparent border-2 border-white text-white font-semibold px-6 py-2 rounded-md ml-4 hover:bg-white hover:text-[#121f4a] transition duration-200">
-      Read More
-    </button>
-    </Link>
-    
-  </div>
-  
-</div>
-<div className="bg-white h-1  opacity-15">
-    </div>
-    <div className="container mx-auto px-10 pb-32 pt-16">
-      <h1 className="text-center text-3xl font-bold mb-20">
-        Your fans can buy you a chai</h1>
-      
-      <div className="  flex gap-5 justify-around ">
-         <div className="  text-white item space-y-3 flex flex-col items-center justify-centre rounded-full">
-          <img width={100} src="/chai1.gif" alt="Chai 1" className="w-24 h-24 mx-auto mb-2 p-2" />
-          <p className=" font-bold text-center text-white-800"> Fans want to help</p>
-          <p className=" text-center">Your fans are available for you to help you</p>
+    <>
+      {/* Hero Section */}
+      <div className="flex justify-center flex-col items-center h-[44vh] text-white px-5 md:px-0 text-xs md:text-base">
+        <div className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight hover:scale-105 transition duration-300 animate-fade-in">
+          Support Hive
         </div>
-         <div className="  text-white item space-y-3 flex flex-col items-center justify-centre rounded-full">
-          <img width={100} src="/coin.gif" alt="Chai 1" className="w-24 h-24 mx-auto mb-2 p-2" />
-          <p className=" font-bold text-center text-white-800">Fans want to help</p>
-          <p className=" text-center">Your fans are available for you to help you</p>
+
+        <p className="text-sm m-4 md:text-base max-w-xl text-gray-300 mb-2 text-center animate-fade-in delay-100">
+          A crowd-funding hive where your supporters fuel your passion.
+        </p>
+        <p className="text-sm md:text-base max-w-xl text-gray-300 mb-6 text-center animate-fade-in delay-200">
+          Let your fans back your creativity — one drop of support at a time.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 animate-fade-in delay-300">
+          <Link href="/login">
+            <button className="bg-[#fff] text-[#121f4a] font-bold px-6 py-2 rounded-md hover:bg-[#121f4a] hover:text-white transition-all duration-300 shadow-md">
+              🚀 Start Now
+            </button>
+          </Link>
+          <Link href="/about">
+            <button className="bg-white text-[#121f4a] font-bold px-6 py-2 rounded-md hover:bg-[#121f4a] hover:text-white transition-all duration-300 shadow-md">
+              📖 Read More
+            </button>
+          </Link>
         </div>
-        <div className="  text-white item space-y-3 flex flex-col items-center justify-centre rounded-full">
-          <img width={50} src="/fans.gif" alt="Chai 1" className="w-24 h-24 mx-auto mb-2 p-2" />
-          <p className=" font-bold text-center text-white-800">Fans want to help</p>
-          <p className=" text-center">Your fans are available for you to help you</p>
+      </div>
+
+      <div className="bg-white h-1 opacity-15"></div>
+
+      {/* Features Section */}
+      <div className="container mx-auto px-5 sm:px-10 pb-32 pt-16">
+        <h1 className="text-center text-2xl sm:text-3xl font-bold mb-20 text-white animate-fade-in">
+          Let your community fund your next creation, one sip at a time.
+        </h1>
+
+        <div className="flex flex-wrap gap-10 justify-center items-center">
+          {[
+            {
+              img: "/chai1.gif",
+              title: "Fans want to help",
+              desc: "Your fans are available for you to help you"
+            },
+            {
+              img: "/coin.gif",
+              title: "Support isn’t a favor — it’s a movement",
+              desc: "Let your community empower you"
+            },
+            {
+              img: "/fans.gif",
+              title: "Fans want to help",
+              desc: "Behind every creator is a hive of supporters ready to make dreams real."
+            }
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="text-white space-y-3 flex flex-col items-center text-center max-w-xs p-6 rounded-2xl shadow-lg transform transition-transform hover:scale-105 animate-fade-in delay-300 bg-[#1e1e1e]"
+            >
+              <img width={100} src={item.img} alt={item.title} className="w-24 h-24 mx-auto mb-2 p-2 rounded-full bg-white/10" />
+              <p className="font-bold">{item.title}</p>
+              <p>{item.desc}</p>
+            </div>
+          ))}
         </div>
+      </div>
+
+      <div className="bg-white h-0.5 opacity-15"></div>
+
+      {/* About Section */}
+      <div className="container py-16 mx-auto flex flex-col items-center justify-center px-4">
+        <h1 className="text-center text-2xl sm:text-3xl font-bold mb-10 text-white animate-fade-in">
+          Learn More About Us!!
         
+        </h1>
+
+        <div className="w-full sm:w-[90%] md:w-[70%] lg:w-[60%] h-[30vh] sm:h-[40vh] rounded-lg overflow-hidden shadow-lg animate-fade-in delay-200">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/94vwZ5fyT7k?si=b1cebhVcXJIAaIA5"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
-    </div>
-    <div className="bg-white h-0.5 opacity-15 ">
-    </div>
-    <div className="container items-center py-16 mx-auto flex flex-col justify-center">
-      <h1 className="text-center text-3xl font-bold mb-20">
-        Learn More About Us!! fake one <span><img width={100} src="/fake-image.jpg" alt="Fake Image" className=" flex flex-col  rounded-full w-24 h-24 mx-auto mb-2 p-2" /></span></h1>
-        <div className="w-[90%] h-[40vh] md:w-[50%] md:h-[40vh] lg:w-[50%] lg:h-[60] xl:w-[50%] xl:h-[40vh]">
-      <iframe className="w-full h-full"  src="https://www.youtube.com/embed/94vwZ5fyT7k?si=b1cebhVcXJIAaIA5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      </div>
-    
-</>
+    </>
   )
 }

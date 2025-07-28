@@ -16,10 +16,10 @@ const AboutPage = () => {
         {/* Header */}
         <div className="text-center">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-yellow-500 to-purple-500 bg-clip-text text-transparent animate-pulse drop-shadow-xl">
-            Get Me a Chai ☕
+            Get Me a HIVE
           </h1>
           <p className="text-gray-300 mt-3 text-lg">
-            Empowering Creators through Crowdfunding, One Chai at a Time.
+            Empowering Creators through Crowdfunding, One Sip at a Time.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ const AboutPage = () => {
               🚀 Your fans collaborate directly with you.
             </li>
             <li className="hover:ml-2 transition-all duration-300 ease-in-out">
-              🫖 They support you by buying you a "chai".
+              🫖 They support you by Funding You.
             </li>
             <li className="hover:ml-2 transition-all duration-300 ease-in-out">
               ✨ You build, they support — it’s a win-win.
